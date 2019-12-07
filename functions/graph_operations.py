@@ -5,18 +5,33 @@ def incident_edges(G, T):
             if v in e and e not in T[1]:
                 edges.append(e)
                 
-     # Remove edges that makes cycles*******           
+   #Remove edges that make cycles
                 
     return edges
 
-
-def cost(G, e):
+def cost(G,e):
     return G[1][e]
 
-
-
-
-
-# add a min_cost_incident_edge(G, T) function*******
+def initialize_tree(v):
+    return(([v], []))
     
-# graph_cost rerturns the total weight of a gaph******
+    
+#add a min_cost_incident_edge(G, T)
+################################################
+def min_cost_incident_edge(G,T):
+    edges = incident_edges(G,T)
+    min_edges = edges[0]
+    for i in range(1,len(edges)):
+        if
+        
+        
+    
+        return min_e
+#######################################################
+#graph_cost returns the total weight of a graph
+    
+    
+    ####prims algo########
+#remove edges that make cycles
+#make a function find a minimum edge
+#return total edge cost of a given graph
