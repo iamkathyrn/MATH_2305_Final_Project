@@ -22,8 +22,8 @@ def cost (input_graph, edge):
     #return weight (cost) of edges in graph
     return input_graph[1][edge]
 
-def initialize_tree (start_node):
-    #build and return our tree to begin adding nodes and edges to
+def init_tree (start_node):
+    #build and return our tree to begin adding nodes and edges
     return (([start_node],[]))
 
 ###############################################################################
