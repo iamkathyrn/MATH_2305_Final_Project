@@ -1,4 +1,2 @@
 # MATH_2305_Final_Project
-# um
-# hi
-# ^_^
+# Minimum Spanning Tree using Prim's algorithm in Python
