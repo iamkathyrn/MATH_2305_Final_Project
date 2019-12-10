@@ -1,82 +1,49 @@
-def incident_edges(G, T):
-    edges = []
-    for e in G[1]:
-        for v in T[0]:
-            if v in e and e not in T[1]:
-                edges.append(e)
-                
-   #Remove edges that make cycles
-                
-    return edges
-
-def cost(G,e):
-    return G[1][e]
-
-def initialize_tree(v):
-    return(([v], []))
+def incident_edges (input_graph, tree):
+    #gives all adjacent NODES to current NODES currently in our graph
+    tree_NODES = []
     
-    
-#add a min_cost_incident_edge(G, T)
-################################################
-def min_cost_incident_edge(G,T):
-    edges = incident_edges(G,T)
-    min_edges = edges[0]
-    for i in range(1,len(edges)):
-        if
+    for edge in input_graph[1]:
+        for node_1 in tree[0]:
+            for node_2 in tree[0]:
+                if (node_1 in edge) and (edge not in tree[1]) and (edge not in tree_NODES):
+                    tree_NODES.append(edge)
         
-        
-    
-        return min_e
-    
-    
-    
-    
-    def min_cost_incident_edge(G, T):
-    
-    inedges = incident_edges(G, T)  #get incident edges
-    min, returnedge = cost(G, inedges[0]), inedges[0] #starting minimum and return edge
-    for e in inedges:  #loop through incident edges
-        edgecost = cost(G, e)
-        if edgecost < min:  #if cost is smaller than minimum
-            min = edgecost  #set minimum
-            returnedge = e  #set return
-        
-    return returnedge
+    for edge in tree_NODES:
+        for node_1 in tree[0]:
+            for node_2 in tree[0]:
+                #if (2 of the same nodes in tree) - delete - removes circular graphs)
+                #if  ( ( '('+str(node_1) + ', ' + str(node_2)+')' ) == str(edge)   ):
+                if  ( ( '('+str(node_1) + ', ' + str(node_2)+')' ) == str(edge)   ):
+                    del tree_NODES[ tree_NODES.index(edge) ]
 
+    return tree_NODES
+
+def cost (input_graph, edge):
+    #return weight (cost) of edges in graph
+    return input_graph[1][edge]
+
+def initialize_tree (start_node):
+    #build and return our tree to begin adding nodes and edges to
+    return (([start_node],[]))
+
+###############################################################################
+def min_cost_incident_edge(input_graph, tree):
+    #return minimum edge through comparision of edges
+    new_nodes = incident_edges(input_graph, tree)
+    minimum_edge = new_nodes[0]
+
+    for j in new_nodes:
+        if ((input_graph[1][minimum_edge] >= input_graph[1][j])):
+            minimum_edge = j
+
+    return minimum_edge 
     
-def add_new_edge(G, T):
-     
-     newedge = min_cost_incident_edge(G, T)
-     T[1].append(newedge)
-     for v in newedge: 
-          if v not in T[0]:
-              T[0].append(v)
+def total_tree_weight(input_graph, prims_MST):
+    #return total weight of tree (cost)
+    total_tree_weight = 0
+ 
+    #looping thorugh all nodes in created MST
+    for e in range(0, len( prims_MST[1] ) ):
+        total_tree_weight = total_tree_weight + cost(input_graph, prims_MST[1][e] )
         
-     return T
-   
-# checks tree to see if it's path has been completed
-def check_tree(G, T):
-    
-    g_len = len(G[0])
-    t_len = len(T[0])
-    
-    if g_len == t_len:
-        return 1
-    else:
-        return 0    
-  
-def tree_cost(G,T): # finds edgecost of tree
-    treecost = 0
-    for e in T[1]:
-        treecost += cost(G,e)
-    return treecost
-
-
-#######################################################
-#graph_cost returns the total weight of a graph
-    
-    
-    ####prims algo########
-#remove edges that make cycles
-#make a function find a minimum edge
-#return total edge cost of a given graph
+    return total_tree_weight
