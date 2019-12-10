@@ -1,4 +1,4 @@
-from algorithms.prims_algorithms import prims
+from algorithms.prims_algorithm import prims
 from functions.reading_writing_function import get_graph
 from functions.graph_operations import *
 
