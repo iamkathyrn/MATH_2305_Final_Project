@@ -1,17 +1,18 @@
 # MATH_2305_Final_Project
 # Minimum Spanning Tree using Prim's algorithm in Python
 
-reading_writing_function.py
+### reading_writing_function.py
+
   Creates a dictionary of tuples from our data (G1.txt) to manipulate.
   
-test.py
+### test.py
   Used to build and test functions and later move them into their correct places once we knew they worked.
   
-main.py
+### main.py
   
   Our main where all functions are called and results are formatted and displayed
   
-graph_operations.py
+### graph_operations.py
 
   def incident_edges (input_graph, tree):
   
@@ -33,6 +34,6 @@ graph_operations.py
   
     #return total weight of tree (cost)
     
-prims_algorithm.py
+### prims_algorithm.py
 
   adds nodes and edges to tree - non-circular
